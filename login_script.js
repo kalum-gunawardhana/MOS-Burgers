@@ -39,7 +39,7 @@ function loginFun() {
 
     alert("Sign-In Successful!");
 
-    window.location.assign("home.html");
+    window.location.assign("cashierHome.html");
 
     document.getElementById("username").reset();
     document.getElementById("password").reset();
