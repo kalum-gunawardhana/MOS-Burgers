@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashier POS System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="cashier.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div
+                class="col-md-2 sidebar d-flex flex-column align-items-center pt-5 pb-5 bg-black vh-100 justify-content-between">
+                <button class="btn btn-warning w-50" onclick="loadBurgers()">Burgers</button>
+                <button class="btn btn-warning w-50" onclick="loadSubmarines()">Submarines</button>
+                <button class="btn btn-warning w-50" onclick="loadFries()">Fries</button>
+                <button class="btn btn-warning w-50" onclick="loadPasta()">Pasta</button>
+                <button class="btn btn-warning w-50" onclick="loadChicken()">Chicken</button>
+                <button class="btn btn-warning w-50" onclick="loadBeverages()">Beverages</button>
+            </div>
+
+            <!-- main cards -->
+            <div class="col-md-10">
+                <section>
+                    <div class="row" id="food_menu">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="cashier.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
