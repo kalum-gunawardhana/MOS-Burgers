@@ -80,7 +80,7 @@ function loadBurgers() {
                 <h5 class="card-title">${item.itemName}</h5>
                 <p class="card-text">Price: ${item.price} LKR</p>
                 <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder(${item.itemCode})">Add to Order</button>
+                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
             </div>
             </div>`;
             foodMenuDiv.appendChild(card);
@@ -99,7 +99,7 @@ function loadSubmarines() {
                 <h5 class="card-title">${item.itemName}</h5>
                 <p class="card-text">Price: ${item.price} LKR</p>
                 <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder(${item.itemCode})">Add to Order</button>
+                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
             </div>
             </div>`;
             foodMenuDiv.appendChild(card);
@@ -118,7 +118,7 @@ function loadFries() {
                 <h5 class="card-title">${item.itemName}</h5>
                 <p class="card-text">Price: ${item.price} LKR</p>
                 <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder(${item.itemCode})">Add to Order</button>
+                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
             </div>
             </div>`;
             foodMenuDiv.appendChild(card);
@@ -137,7 +137,7 @@ function loadPasta() {
                 <h5 class="card-title">${item.itemName}</h5>
                 <p class="card-text">Price: ${item.price} LKR</p>
                 <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder(${item.itemCode})">Add to Order</button>
+                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
             </div>
             </div>`;
             foodMenuDiv.appendChild(card);
@@ -156,7 +156,7 @@ function loadChicken() {
                 <h5 class="card-title">${item.itemName}</h5>
                 <p class="card-text">Price: ${item.price} LKR</p>
                 <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder(${item.itemCode})">Add to Order</button>
+                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
             </div>
             </div>`;
             foodMenuDiv.appendChild(card);
@@ -175,7 +175,7 @@ function loadBeverages() {
                 <h5 class="card-title">${item.itemName}</h5>
                 <p class="card-text">Price: ${item.price} LKR</p>
                 <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder(${item.itemCode})">Add to Order</button>
+                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
             </div>
             </div>`;
             foodMenuDiv.appendChild(card);
@@ -184,5 +184,19 @@ function loadBeverages() {
 }
 
 function addToOrder(itemCode) {
-    
+    let tbody = document.getElementById('tbodyId');
+    let body = '';
+    // console.log(itemCode);
+    for (let i = 0; i < items.length; i++) {
+        if (itemCode == items[i].itemCode) {
+            body = `<tr>
+                        <td>${items[i].itemName}</td>
+                        <td>${items[i].price}</td>
+                        <td>1</td>
+                        <td>${items[i].price}</td>
+                        <td><button class="btn btn-danger">Remove to Order</button></td>
+                    </tr>`
+        }
+    }
+    tbody.innerHTML += body;
 }
