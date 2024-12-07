@@ -23,15 +23,50 @@
                 <button class="btn btn-warning w-50" onclick="loadBeverages()">Beverages</button>
             </div>
 
-            <!-- main cards -->
-            <div class="col-md-10">
-                <section>
+            <!-- Main Content -->
+            <div class="col-md-10 d-flex flex-column">
+                
+                <section class="mb-4">
                     <div class="row" id="food_menu">
+                        
                     </div>
+                </section>
+
+                <!-- Order Table Section -->
+                <section class="d-flex flex-column align-items-center">
+                    <div class="d-flex justify-content-center flex-wrap w-100">
+                        <div class="table-responsive flex-grow-1">
+                            <table class="table table-bordered" id="order_table">
+                                <thead>
+                                    <tr>
+                                        <th>Item Name</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100 mt-3">
+                        <div>
+                            <label for="discount">Discount (%): </label>
+                            <input type="number" id="discount" class="form-control w-50 d-inline" min="0" max="100"
+                                value="0">
+                        </div>
+                        <h4>Total: <span id="total-amount">0.00</span> LKR</h4>
+                    </div>
+                    <button class="btn btn-primary mt-3" id="generate-receipt">Generate Receipt</button>
                 </section>
             </div>
         </div>
     </div>
+
+
     <script src="cashier.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

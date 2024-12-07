@@ -30,26 +30,26 @@ const items = [
     { itemCode: "B1027", itemName: "French Fries (Medium)", price: 650, discount: 1 },
     { itemCode: "B1028", itemName: "French Fries (Small)", price: 450, discount: 1 },
     { itemCode: "B1029", itemName: "Sweet Potato Fries (Large) ", price: 600, discount: 1 },
-    
+
     { itemCode: "B1030", itemName: "Chicken n Cheese Pasta ", price: 1600, discount: 15 },
     { itemCode: "B1031", itemName: "Chicken Penne Pasta", price: 1700, discount: 1 },
     { itemCode: "B1032", itemName: "Ground Turkey Pasta Bake ", price: 2900, discount: 10 },
-    { itemCode: "B1033", itemName: "Creamy Shrimp Pasta  ", price: 2000, discount: 1},
-    { itemCode: "B1034", itemName: "Lemon Butter Pasta", price: 1950, discount: 1},
-    { itemCode: "B1035", itemName: "Tagliatelle Pasta ", price: 2400, discount: 1},
-    { itemCode: "B1036", itemName: "Baked Ravioli", price: 2000, discount: 1},
+    { itemCode: "B1033", itemName: "Creamy Shrimp Pasta  ", price: 2000, discount: 1 },
+    { itemCode: "B1034", itemName: "Lemon Butter Pasta", price: 1950, discount: 1 },
+    { itemCode: "B1035", itemName: "Tagliatelle Pasta ", price: 2400, discount: 1 },
+    { itemCode: "B1036", itemName: "Baked Ravioli", price: 2000, discount: 1 },
 
-    { itemCode: "B1037", itemName: "Fried Chicken (Small)", price: 1200, discount: 1},
-    { itemCode: "B1038", itemName: "Fried Chicken (Regular) ", price: 2300, discount: 10},
-    { itemCode: "B1039", itemName: "Hot Wings (Large)", price: 3100, discount: 5},
-    { itemCode: "B1040", itemName: "Hot Wings (Large)", price: 3100, discount: 5},
-    { itemCode: "B1041", itemName: "Devilled Chicken (Large) ", price: 900, discount: 1},
-    { itemCode: "B1042", itemName: "BBQ Chicken (Regular)", price: 2100, discount: 1},
+    { itemCode: "B1037", itemName: "Fried Chicken (Small)", price: 1200, discount: 1 },
+    { itemCode: "B1038", itemName: "Fried Chicken (Regular) ", price: 2300, discount: 10 },
+    { itemCode: "B1039", itemName: "Hot Wings (Large)", price: 3100, discount: 5 },
+    { itemCode: "B1040", itemName: "Hot Wings (Large)", price: 3100, discount: 5 },
+    { itemCode: "B1041", itemName: "Devilled Chicken (Large) ", price: 900, discount: 1 },
+    { itemCode: "B1042", itemName: "BBQ Chicken (Regular)", price: 2100, discount: 1 },
 
-    { itemCode: "B1043", itemName: "Pepsi (330ml)", price: 990, discount: 5},
-    { itemCode: "B1044", itemName: "Coca-Cola (330ml)", price: 1230, discount: 1},
-    { itemCode: "B1045", itemName: "Sprite (330ml) ", price: 1500, discount: 3},
-    { itemCode: "B1046", itemName: "Mirinda (330ml)", price: 850, discount: 7},
+    { itemCode: "B1043", itemName: "Pepsi (330ml)", price: 990, discount: 5 },
+    { itemCode: "B1044", itemName: "Coca-Cola (330ml)", price: 1230, discount: 1 },
+    { itemCode: "B1045", itemName: "Sprite (330ml) ", price: 1500, discount: 3 },
+    { itemCode: "B1046", itemName: "Mirinda (330ml)", price: 850, discount: 7 },
 ];
 
 const foodMenuDiv = document.getElementById('food_menu');
@@ -181,4 +181,8 @@ function loadBeverages() {
             foodMenuDiv.appendChild(card);
         }
     });
+}
+
+function addToOrder(itemCode) {
+    
 }
