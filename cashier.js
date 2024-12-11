@@ -200,3 +200,8 @@ function addToOrder(itemCode) {
     }
     tbody.innerHTML += body;
 }
+
+function addItem() {
+    // console.log('correct');
+    window.location.href = 'addItem.html';
+}
