@@ -294,7 +294,7 @@ function generateReceipt() {
     receiptContent += `\n\n\n\t\t\t\t----------------------------------------------------------\n\n`;
     receiptContent += `\t\t\t\t\tTotal Amount: ${totalAmount.toFixed(2)} LKR\n\n`;
     receiptContent += `\t\t\t\t----------------------------------------------------------\n\n`;
-    receiptContent += `\t\t\t\t\tThank you ${int1} for dining with us!`;
+    receiptContent += `\t\t\t\t\tThank you for dining with us!`;
 
     // Display receipt in a new window
     const receiptWindow = window.open('', 'Receipt', 'width=700,height=600');
@@ -306,27 +306,69 @@ function generateReceipt() {
     receiptWindow.document.close();
 }
 //----------add customers form----------
-let int1;
-let int2;
+// let int1;
+// let int2;
 
-function addCustomer() {
-    (async () => {
-        const { value: formValues } = await Swal.fire({
-          title: "Add Customer Form",
-          html: `
-            <input id="swal-input1" class="swal2-input" placeholder="Customer Name">
-            <input id="swal-input2" class="swal2-input" placeholder="Customer Phone Number">
-          `,
-          focusConfirm: false,
-          preConfirm: () => {
-            return [
-                int1=document.getElementById("swal-input1").value,
-                int2=document.getElementById("swal-input2").value
-            ];
-          }
-        });
-        if (formValues) {
-          Swal.fire(JSON.stringify(formValues));
-        }
-      })()
-}
+// function addCustomer() {
+//     (async () => {
+//         const { value: formValues } = await Swal.fire({
+//           title: "Add Customer Form",
+//           html: `
+//             <input id="swal-input1" class="swal2-input" placeholder="Customer Name">
+//             <input id="swal-input2" class="swal2-input" placeholder="Customer Phone Number">
+//           `,
+//           focusConfirm: false,
+//           preConfirm: () => {
+//             return [
+//                 int1=document.getElementById("swal-input1").value,
+//                 int2=document.getElementById("swal-input2").value
+//             ];
+//           }
+//         });
+//         if (formValues) {
+//           Swal.fire(JSON.stringify(formValues));
+//         }
+//       })()
+// }
+
+// let code;
+// let names;
+// let price;
+// let discount;
+
+// function addItems() {
+//     (async () => {
+//         const { value: formValues } = await Swal.fire({
+//             title: "Add Items Form",
+//             html: `
+//                 <input id="swal-code" class="swal2-input" placeholder="Item Code">
+//                 <input id="swal-name" class="swal2-input" placeholder="Item Name">
+//                 <input id="swal-price" class="swal2-input" placeholder="Item Price">
+//                 <input id="swal-discount" class="swal2-input" placeholder="Item Discount">
+//             `,
+//             focusConfirm: false,
+//             preConfirm: () => {
+//                 // Capture the form values from input fields
+//                 code = document.getElementById("swal-code").value;
+//                 names = document.getElementById("swal-name").value;
+//                 price = document.getElementById("swal-price").value;
+//                 discount = document.getElementById("swal-discount").value;
+
+//                 // Add the new item to the items array
+//                 items.push({
+//                     itemCode: code,
+//                     itemName: names,
+//                     price: price,
+//                     discount: discount
+//                 });
+//                 // Return the captured values
+//                 return [code, names, price, discount];
+//             }
+//         });
+        
+//         // Show the confirmation alert with the form values
+//         if (formValues) {
+//             Swal.fire(`Item Added: ${JSON.stringify(formValues)}`);
+//         }
+//     })();
+// }
