@@ -231,8 +231,6 @@ function updateOrderTable() {
 
         tbody.innerHTML += `
             <tr>
-                <td>${int1}</td>
-                <td>${int2}</td>
                 <td>${item.itemName}</td>
                 <td>${item.price.toFixed(2)}</td>
                 <td>${item.quantity}</td>
