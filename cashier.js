@@ -183,25 +183,65 @@ function loadBeverages() {
     });
 }
 
+let addOrderArray = [];
+
 function addToOrder(itemCode) {
     let tbody = document.getElementById('tbodyId');
-    let body = '';
-    // console.log(itemCode);
+
     for (let i = 0; i < items.length; i++) {
-        if (itemCode == items[i].itemCode) {
-            body = `<tr>
-                        <td>${items[i].itemName}</td>
-                        <td>${items[i].price}</td>
-                        <td>1</td>
-                        <td>${items[i].price}</td>
-                        <td><button class="btn btn-danger">Remove to Order</button></td>
-                    </tr>`
+        if (itemCode === items[i].itemCode) {
+            let itemFound = false;
+
+            for (let j = 0; j < addOrderArray.length; j++) {
+                if (addOrderArray[j].itemCode === itemCode) {
+                    addOrderArray[j].quantity++;
+                    itemFound = true;
+                    break;
+                }
+            }
+
+            if (!itemFound) {
+                addOrderArray.push({
+                    itemCode: items[i].itemCode,
+                    itemName: items[i].itemName,
+                    price: items[i].price,
+                    discount: items[i].discount,
+                    quantity: 1
+                });
+            }
+            break;
         }
     }
-    tbody.innerHTML += body;
+    // console.log(addOrderArray);
+    updateOrderTable();
 }
 
-function addItem() {
-    // console.log('correct');
-    window.location.href = 'addItem.html';
+function updateOrderTable() {
+    let tbody = document.getElementById('tbodyId');
+    tbody.innerHTML = '';
+
+    addOrderArray.forEach((item, index) => {
+        const totalPrice = item.price * item.quantity;
+        tbody.innerHTML += `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${item.itemCode}</td>
+                <td>${item.itemName}</td>
+                <td>${item.price.toFixed(2)}</td>
+                <td>${item.quantity}</td>
+                <td>${totalPrice.toFixed(2)}</td>
+                <td>
+                    <button class="btn btn-danger" onclick="removeFromOrder('${item.itemCode}')">Remove</button>
+                </td>
+            </tr>
+        `;
+    });
 }
+
+function removeFromOrder(itemCode) {
+    addOrderArray = addOrderArray.filter(item => item.itemCode !== itemCode);
+    updateOrderTable();
+}
+
+
+
