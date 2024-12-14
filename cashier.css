@@ -3,7 +3,7 @@
     height: 200px;
     font-size: 18px;
 }
-//----------------------------------------
+
 /* General Reset */
 body {
     margin: 0;
@@ -120,28 +120,6 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
-}
-
-#total-amount {
-    font-weight: bold;
-    color: #d9534f;
-    /* Red for emphasis */
-}
-
-#generate-receipt {
-    padding: 10px 30px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    /* Green */
-    color: #fff;
-    transition: all 0.3s;
-}
-
-#generate-receipt:hover {
-    background-color: #218838;
-    box-shadow: 0px 5px 10px rgba(40, 167, 69, 0.5);
 }
 
 /* Responsive Design */
