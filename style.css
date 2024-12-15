@@ -10,7 +10,7 @@ body {
 .btn-dark {
     border: none;
 }
-//----------------------------------------------------------------------
+
 /* General Reset */
 body, html {
     margin: 0;
@@ -87,3 +87,44 @@ body, html {
         font-size: 1.5rem;
     }
 }
+
+.menu-bar {
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers the buttons horizontally */
+    gap: 20px; /* Adds spacing between buttons */
+    margin: 20px auto; /* Center the menu-bar on the page */
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* Optional: Semi-transparent background for contrast */
+    border-radius: 10px; /* Optional: Rounded edges */
+    max-width: 80%; /* Optional: Constrain the width */
+}
+
+.menu-bar button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: transform 0.3s, filter 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Hover and Active Effects */
+.menu-bar button:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    filter: brightness(85%);
+}
+
+.menu-bar button:active {
+    transform: scale(0.98); /* Shrink slightly on click */
+}
+
+/* Responsive Design: Switch to Vertical Layout for Small Screens */
+@media (max-width: 768px) {
+    .menu-bar {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 15px;
+    }
+}
+

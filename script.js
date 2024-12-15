@@ -15,7 +15,7 @@ function login(event) {
 
     if (username === cashierUsername && password === cashierPassword) {
         alert('Login Successful');
-        window.location.href = 'cashier.html';
+        window.location.href = 'cashierIterface.html';
     } else if (username === adminUsername && password === adminPassword) {
         alert('Login Successful');
         window.location.href = 'admin.html';

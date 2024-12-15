@@ -1,0 +1,69 @@
+/* Full-Page Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    background-image: url('img/front-view-yummy-meat-cheeseburger-with-french-fries-dark-background-dinner-burgers-snack-fast-food-sandwich-salad-dish-toast.jpg');
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling */
+    background-attachment: fixed; /* Keep the image fixed while scrolling */
+    font-family: Arial, sans-serif; /* Set a default font for consistency */
+}
+
+.container-fluant {
+    overflow: hidden;
+}
+
+/* Styling the Menu Bar */
+.menu-bar {
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    gap: 20px; /* Spacing between buttons */
+    margin-top: 100px; /* Adjust to position relative to the background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Fit nicely on smaller screens */
+    max-width: 400px; /* Limit width on larger screens */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button Styling */
+.menu-bar button {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border-radius: 5px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, filter 0.3s;
+}
+
+/* Button Hover and Active Effects */
+.menu-bar button:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    filter: brightness(85%);
+}
+
+.menu-bar button:active {
+    transform: scale(0.98); /* Shrink slightly on click */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-bar {
+        margin-top: 100px;
+        padding: 15px;
+    }
+
+    .menu-bar button {
+        width: 100%; /* Stretch buttons on smaller screens */
+        font-size: 1rem;
+    }
+}
