@@ -185,6 +185,7 @@ function loadBeverages() {
 
 let addOrderArray = [];
 
+// add to order function
 function addToOrder(itemCode) {
     let tbody = document.getElementById('tbodyId');
 
@@ -219,6 +220,7 @@ function addToOrder(itemCode) {
 let totalOrderArray = [];
 let totalAmouts = 0;
 
+// update order function
 function updateOrderTable() {
     let tbody = document.getElementById('tbodyId');
     tbody.innerHTML = '';
@@ -244,16 +246,19 @@ function updateOrderTable() {
     calTotalAmou();
 }
 
+// order remove function
 function removeFromOrder(itemCode) {
     addOrderArray = addOrderArray.filter(item => item.itemCode !== itemCode);
     updateOrderTable();
 }
 
+// calcutor amount funtion
 function calTotalAmou() {
     let tm = document.getElementById('total-amount');
     tm.innerHTML = totalAmouts.toFixed(2);
 }
 
+// calcutor total amount
 function calTotAmo() {
     let em=document.getElementById('enter-amount').value;
     let gr=document.getElementById('total-amounts');
@@ -261,7 +266,7 @@ function calTotAmo() {
     let netAmo=em-totalAmouts;
     gr.innerHTML=netAmo;
 }
-//----------------generateReceipt()----------------
+//----------------generate Receipt funtions----------------
 function generateReceipt() {
     // Get the table body and rows
     const tableBody = document.getElementById('tbodyId');

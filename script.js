@@ -1,25 +1,32 @@
-const cashierUsername = "cashier";
-const cashierPassword = "cashier123";
-
-const adminUsername = "admin";
-const adminPassword = "admin123";
-
 function login(event) {
     event.preventDefault();
 
-    let username = document.getElementById('username').value;
-    // console.log(username);
+    let username0 = document.getElementById('username').value;
 
-    let password = document.getElementById('password').value;
-    // console.log(password);
+    let password0 = document.getElementById('password').value;
 
-    if (username === cashierUsername && password === cashierPassword) {
-        alert('Login Successful');
-        window.location.href = 'cashierIterface.html';
-    } else if (username === adminUsername && password === adminPassword) {
-        alert('Login Successful');
-        window.location.href = 'admin.html';
-    } else {
-        alert('Invalid Username or Password');
-    } 
+    fetch("http://localhost:8080/user/login", {
+        method: 'POST',
+
+        headers: {
+            'content-type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            username: username0,
+            password: password0
+        })
+
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to login');
+        }
+
+        return response.text();
+    }).then(data => {
+        alert('Login successful');
+        window.location.href = "cashierIterface.html";
+    }).catch(error => {
+        alert('Failed to login');
+    });
 }

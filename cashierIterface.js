@@ -1,6 +1,6 @@
 function customersManagement() {
     // console.log('correct');
-    alert('Cashier POS System');
+    // alert('Cashier POS System');
     window.location.href = 'cashierCustomers.html';
 }
 
@@ -12,6 +12,6 @@ function itemsManagement() {
 
 function ordersManagement() {
     // console.log('correct');
-    alert('Cashier POS System');
+    // alert('Cashier POS System');
     window.location.href = 'cashierOrders.html';
 }
