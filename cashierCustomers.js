@@ -1,58 +1,3 @@
-/*document.addEventListener('DOMContentLoaded', () => {
-    const customerForm = document.getElementById('customerForm');
-    const customerTableBody = document.querySelector('#customerTable tbody');
-
-    let customers = [];
-
-    function renderTable() {
-        customerTableBody.innerHTML = '';
-
-        customers.forEach((customer, index) => {
-            const row = document.createElement('tr');
-
-            row.innerHTML = `
-                <td>${customer.name}</td>
-                <td>${customer.email}</td>
-                <td>${customer.phone}</td>
-                <td>
-                    <button class="btn-edit" onclick="editCustomer(${index})">Edit</button>
-                    <button class="btn-delete" onclick="deleteCustomer(${index})">Delete</button>
-                </td>
-            `;
-            customerTableBody.appendChild(row);
-        });
-    }
-
-    customerForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-
-        customers.push({ name, email, phone });
-
-        customerForm.reset();
-        renderTable();
-    });
-
-    window.deleteCustomer = (index) => {
-        customers.splice(index, 1);
-        renderTable();
-    };
-
-    window.editCustomer = (index) => {
-        const customer = customers[index];
-
-        document.getElementById('name').value = customer.name;
-        document.getElementById('email').value = customer.email;
-        document.getElementById('phone').value = customer.phone;
-
-        customers.splice(index, 1);
-        renderTable();
-    };
-});*/
-
 document.getElementById("customerForm").addEventListener("submit", function (event) {
     event.preventDefault();
     addCustomer();
@@ -122,19 +67,17 @@ function loadCustomers() {
 }
 
 function editCustomer(customerId) {
-    // Fetch existing customer data
     fetch(`http://localhost:8080/customer/${customerId}`)
         .then(response => response.json())
         .then(customer => {
-            // Fill the form fields with customer data
+
             document.getElementById('name').value = customer.name;
             document.getElementById('email').value = customer.email;
             document.getElementById('phone').value = customer.phone;
 
-            // Change form submit behavior to update instead of adding a new customer
             let form = document.getElementById("customerForm");
             form.onsubmit = function (event) {
-                event.preventDefault(); // Prevent refresh
+                event.preventDefault();
                 updateCustomer(customerId);
             };
         })
@@ -155,7 +98,7 @@ function updateCustomer(customerId) {
     }
 
     fetch(`http://localhost:8080/customer/update/${customerId}`, {
-        method: 'PUT', // Use PUT for updates
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, phone })
     }).then(response => {
@@ -165,9 +108,9 @@ function updateCustomer(customerId) {
         return response.text();
     }).then(data => {
         alert('Customer updated successfully');
-        document.getElementById("customerForm").reset(); // Clear form
-        document.getElementById("customerForm").onsubmit = addCustomer; // Restore original submit behavior
-        loadCustomers(); // Reload customer list
+        document.getElementById("customerForm").reset();
+        document.getElementById("customerForm").onsubmit = addCustomer;
+        loadCustomers();
     }).catch(error => {
         alert('Failed to update customer');
     });
@@ -175,7 +118,7 @@ function updateCustomer(customerId) {
 
 function deleteCustomer(customerId) {
     if (!confirm("Are you sure you want to delete this customer?")) {
-        return; // Exit if user cancels
+        return;
     }
 
     fetch(`http://localhost:8080/customer/delete/${customerId}`, {
@@ -189,7 +132,7 @@ function deleteCustomer(customerId) {
     })
     .then(data => {
         alert('Customer deleted successfully');
-        loadCustomers(); // Reload customer list after deletion
+        loadCustomers();
     })
     .catch(error => {
         alert('Failed to delete customer');

@@ -1,271 +1,412 @@
-const items = [
-    { itemCode: "B1001", itemName: "Classic Burger (Large)", price: 750, discount: 1 },
-    { itemCode: "B1002", itemName: "Classic Burger (Regular)", price: 1500, discount: 15 },
-    { itemCode: "B1003", itemName: "Turkey Burger", price: 1600, discount: 1 },
-    { itemCode: "B1004", itemName: "Chicken Burger (Large) ", price: 1400, discount: 1 },
-    { itemCode: "B1005", itemName: "Chicken Burger (Regular)", price: 800, discount: 20 },
-    { itemCode: "B1006", itemName: "Cheese Burger (Large) ", price: 1000, discount: 1 },
-    { itemCode: "B1007", itemName: "Cheese Burger (Regular)", price: 600, discount: 1 },
-    { itemCode: "B1008", itemName: "Bacon Burger ", price: 650, discount: 15 },
-    { itemCode: "B1009", itemName: "Shawarma Burger ", price: 800, discount: 1 },
-    { itemCode: "B1010", itemName: "Olive Burger ", price: 1800, discount: 1 },
-    { itemCode: "B1011", itemName: "Double-Cheese Burger ", price: 1250, discount: 20 },
-    { itemCode: "B1012", itemName: "Crispy Chicken Burger (Regular) ", price: 1200, discount: 1 },
-    { itemCode: "B1013", itemName: "Crispy Chicken Burger (Large) ", price: 1600, discount: 10 },
-    { itemCode: "B1014", itemName: "Paneer Burger", price: 900, discount: 1 },
-
-    { itemCode: "B1015", itemName: "Crispy Chicken Submarine (Large)", price: 2000, discount: 1 },
-    { itemCode: "B1016", itemName: "Crispy Chicken Submarine (Regular)", price: 1500, discount: 1 },
-    { itemCode: "B1017", itemName: "Chicken Submarine (Large)", price: 1800, discount: 3 },
-    { itemCode: "B1018", itemName: "Chicken Submarine (Regular)", price: 1400, discount: 1 },
-    { itemCode: "B1019", itemName: "Grinder Submarine ", price: 2300, discount: 1 },
-    { itemCode: "B1020", itemName: "Cheese Submarine ", price: 2200, discount: 1 },
-    { itemCode: "B1021", itemName: "Double Cheese n Chicken Submarine", price: 1900, discount: 16 },
-    { itemCode: "B1022", itemName: "Special Horgie Submarine ", price: 2800, discount: 1 },
-    { itemCode: "B1023", itemName: "MOS Special Submarine", price: 3000, discount: 1 },
-
-    { itemCode: "B1024", itemName: "Steak Fries (Large)", price: 1200, discount: 1 },
-    { itemCode: "B1025", itemName: "Steak Fries (Medium) ", price: 600, discount: 1 },
-    { itemCode: "B1026", itemName: "French Fries (Large) ", price: 800, discount: 1 },
-    { itemCode: "B1027", itemName: "French Fries (Medium)", price: 650, discount: 1 },
-    { itemCode: "B1028", itemName: "French Fries (Small)", price: 450, discount: 1 },
-    { itemCode: "B1029", itemName: "Sweet Potato Fries (Large) ", price: 600, discount: 1 },
-
-    { itemCode: "B1030", itemName: "Chicken n Cheese Pasta ", price: 1600, discount: 15 },
-    { itemCode: "B1031", itemName: "Chicken Penne Pasta", price: 1700, discount: 1 },
-    { itemCode: "B1032", itemName: "Ground Turkey Pasta Bake ", price: 2900, discount: 10 },
-    { itemCode: "B1033", itemName: "Creamy Shrimp Pasta  ", price: 2000, discount: 1 },
-    { itemCode: "B1034", itemName: "Lemon Butter Pasta", price: 1950, discount: 1 },
-    { itemCode: "B1035", itemName: "Tagliatelle Pasta ", price: 2400, discount: 1 },
-    { itemCode: "B1036", itemName: "Baked Ravioli", price: 2000, discount: 1 },
-
-    { itemCode: "B1037", itemName: "Fried Chicken (Small)", price: 1200, discount: 1 },
-    { itemCode: "B1038", itemName: "Fried Chicken (Regular) ", price: 2300, discount: 10 },
-    { itemCode: "B1039", itemName: "Hot Wings (Large)", price: 3100, discount: 5 },
-    { itemCode: "B1040", itemName: "Hot Wings (Large)", price: 3100, discount: 5 },
-    { itemCode: "B1041", itemName: "Devilled Chicken (Large) ", price: 900, discount: 1 },
-    { itemCode: "B1042", itemName: "BBQ Chicken (Regular)", price: 2100, discount: 1 },
-
-    { itemCode: "B1043", itemName: "Pepsi (330ml)", price: 990, discount: 5 },
-    { itemCode: "B1044", itemName: "Coca-Cola (330ml)", price: 1230, discount: 1 },
-    { itemCode: "B1045", itemName: "Sprite (330ml) ", price: 1500, discount: 3 },
-    { itemCode: "B1046", itemName: "Mirinda (330ml)", price: 850, discount: 7 },
-];
-
 const foodMenuDiv = document.getElementById('food_menu');
 
-// items.forEach(item => {
-//     const card = document.createElement('div');
-//     card.classList.add('col-md-2');
-//     card.innerHTML = `
-//     <div class="card">
-//       <div class="card-body">
-//         <h5 class="card-title">${item.itemName}</h5>
-//         <p class="card-text">Price: ${item.price} LKR</p>
-//         <p class="card-text">Discount: ${item.discount}(%)</p>
-//         <button class="btn btn-dark" onclick="addToOrder(${item.itemCode})">Add to Order</button>
-//       </div>
-//     </div>`;
-//     foodMenuDiv.appendChild(card);
-// });
-
 function loadBurgers() {
-    items.forEach(item => {
-        if (item.itemCode >= "B1001" && item.itemCode <= "B1014") {
-            const card = document.createElement('div');
-            card.classList.add('col-md-2');
-            card.innerHTML = `
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">${item.itemName}</h5>
-                <p class="card-text">Price: ${item.price} LKR</p>
-                <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
-            </div>
-            </div>`;
-            foodMenuDiv.appendChild(card);
+    fetch('http://localhost:8080/item/getCategory/Burgers')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        return response.json();
+    })
+    .then(data => {
+        const foodMenuDiv = document.getElementById('foodMenuDiv');
+        if (!foodMenuDiv) {
+            console.error("Error: Food menu div not found!");
+            return;
+        }
+
+        foodMenuDiv.innerHTML = '';
+
+        if (data.length === 0) {
+            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+            return;
+        }
+
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.classList.add('col-md-3', 'mb-3');
+
+            card.innerHTML = `
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.itemName}</h5>
+                        <p class="card-text"><strong>Price:</strong> ${item.price} LKR</p>
+                        <p class="card-text"><strong>Discount:</strong> ${item.discount}%</p>
+                        <button class="btn btn-dark" onclick="addToOrder('${item.id}')">Add to Order</button>
+                    </div>
+                </div>
+            `;
+
+            foodMenuDiv.appendChild(card);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching category items:', error);
+        alert('Failed to load items. Please try again later.');
     });
+
 }
 
 function loadSubmarines() {
-    items.forEach(item => {
-        if (item.itemCode >= "B1015" && item.itemCode <= "B1023") {
-            const card = document.createElement('div');
-            card.classList.add('col-md-2');
-            card.innerHTML = `
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">${item.itemName}</h5>
-                <p class="card-text">Price: ${item.price} LKR</p>
-                <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
-            </div>
-            </div>`;
-            foodMenuDiv.appendChild(card);
+    fetch('http://localhost:8080/item/getCategory/Submarines')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        return response.json();
+    })
+    .then(data => {
+        const foodMenuDiv = document.getElementById('foodMenuDiv');
+        if (!foodMenuDiv) {
+            console.error("Error: Food menu div not found!");
+            return;
+        }
+
+        foodMenuDiv.innerHTML = '';
+
+        if (data.length === 0) {
+            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+            return;
+        }
+
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.classList.add('col-md-3', 'mb-3');
+
+            card.innerHTML = `
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.itemName}</h5>
+                        <p class="card-text"><strong>Price:</strong> ${item.price} LKR</p>
+                        <p class="card-text"><strong>Discount:</strong> ${item.discount}%</p>
+                        <button class="btn btn-dark" onclick="addToOrder('${item.id}')">Add to Order</button>
+                    </div>
+                </div>
+            `;
+
+            foodMenuDiv.appendChild(card);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching category items:', error);
+        alert('Failed to load items. Please try again later.');
     });
+
 }
 
 function loadFries() {
-    items.forEach(item => {
-        if (item.itemCode >= "B1024" && item.itemCode <= "B1029") {
-            const card = document.createElement('div');
-            card.classList.add('col-md-2');
-            card.innerHTML = `
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">${item.itemName}</h5>
-                <p class="card-text">Price: ${item.price} LKR</p>
-                <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
-            </div>
-            </div>`;
-            foodMenuDiv.appendChild(card);
+    fetch('http://localhost:8080/item/getCategory/Fries')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        return response.json();
+    })
+    .then(data => {
+        const foodMenuDiv = document.getElementById('foodMenuDiv');
+        if (!foodMenuDiv) {
+            console.error("Error: Food menu div not found!");
+            return;
+        }
+
+        foodMenuDiv.innerHTML = '';
+
+        if (data.length === 0) {
+            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+            return;
+        }
+
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.classList.add('col-md-3', 'mb-3');
+
+            card.innerHTML = `
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.itemName}</h5>
+                        <p class="card-text"><strong>Price:</strong> ${item.price} LKR</p>
+                        <p class="card-text"><strong>Discount:</strong> ${item.discount}%</p>
+                        <button class="btn btn-dark" onclick="addToOrder('${item.id}')">Add to Order</button>
+                    </div>
+                </div>
+            `;
+
+            foodMenuDiv.appendChild(card);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching category items:', error);
+        alert('Failed to load items. Please try again later.');
     });
+
 }
 
 function loadPasta() {
-    items.forEach(item => {
-        if (item.itemCode >= "B1030" && item.itemCode <= "B1036") {
-            const card = document.createElement('div');
-            card.classList.add('col-md-2');
-            card.innerHTML = `
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">${item.itemName}</h5>
-                <p class="card-text">Price: ${item.price} LKR</p>
-                <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
-            </div>
-            </div>`;
-            foodMenuDiv.appendChild(card);
+    fetch('http://localhost:8080/item/getCategory/Pasta')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        return response.json();
+    })
+    .then(data => {
+        const foodMenuDiv = document.getElementById('foodMenuDiv');
+        if (!foodMenuDiv) {
+            console.error("Error: Food menu div not found!");
+            return;
+        }
+
+        foodMenuDiv.innerHTML = '';
+
+        if (data.length === 0) {
+            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+            return;
+        }
+
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.classList.add('col-md-3', 'mb-3');
+
+            card.innerHTML = `
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.itemName}</h5>
+                        <p class="card-text"><strong>Price:</strong> ${item.price} LKR</p>
+                        <p class="card-text"><strong>Discount:</strong> ${item.discount}%</p>
+                        <button class="btn btn-dark" onclick="addToOrder('${item.id}')">Add to Order</button>
+                    </div>
+                </div>
+            `;
+
+            foodMenuDiv.appendChild(card);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching category items:', error);
+        alert('Failed to load items. Please try again later.');
     });
+
 }
 
 function loadChicken() {
-    items.forEach(item => {
-        if (item.itemCode >= "B1037" && item.itemCode <= "B1042") {
-            const card = document.createElement('div');
-            card.classList.add('col-md-2');
-            card.innerHTML = `
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">${item.itemName}</h5>
-                <p class="card-text">Price: ${item.price} LKR</p>
-                <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
-            </div>
-            </div>`;
-            foodMenuDiv.appendChild(card);
+    fetch('http://localhost:8080/item/getCategory/Chicken')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        return response.json();
+    })
+    .then(data => {
+        const foodMenuDiv = document.getElementById('foodMenuDiv');
+        if (!foodMenuDiv) {
+            console.error("Error: Food menu div not found!");
+            return;
+        }
+
+        foodMenuDiv.innerHTML = '';
+
+        if (data.length === 0) {
+            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+            return;
+        }
+
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.classList.add('col-md-3', 'mb-3');
+
+            card.innerHTML = `
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.itemName}</h5>
+                        <p class="card-text"><strong>Price:</strong> ${item.price} LKR</p>
+                        <p class="card-text"><strong>Discount:</strong> ${item.discount}%</p>
+                        <button class="btn btn-dark" onclick="addToOrder('${item.id}')">Add to Order</button>
+                    </div>
+                </div>
+            `;
+
+            foodMenuDiv.appendChild(card);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching category items:', error);
+        alert('Failed to load items. Please try again later.');
     });
+
 }
 
 function loadBeverages() {
-    items.forEach(item => {
-        if (item.itemCode >= "B1043" && item.itemCode <= "B1046") {
-            const card = document.createElement('div');
-            card.classList.add('col-md-2');
-            card.innerHTML = `
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">${item.itemName}</h5>
-                <p class="card-text">Price: ${item.price} LKR</p>
-                <p class="card-text">Discount: ${item.discount}(%)</p>
-                <button class="btn btn-dark" onclick="addToOrder('${item.itemCode}')">Add to Order</button>
-            </div>
-            </div>`;
-            foodMenuDiv.appendChild(card);
+    fetch('http://localhost:8080/item/getCategory/Beverages')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        return response.json();
+    })
+    .then(data => {
+        const foodMenuDiv = document.getElementById('foodMenuDiv');
+        if (!foodMenuDiv) {
+            console.error("Error: Food menu div not found!");
+            return;
+        }
+
+        foodMenuDiv.innerHTML = '';
+
+        if (data.length === 0) {
+            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+            return;
+        }
+
+        data.forEach(item => {
+            
+            const card = document.createElement('div');
+            card.classList.add('col-md-3', 'mb-3');
+
+            card.innerHTML = `
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.itemName}</h5>
+                        <p class="card-text"><strong>Price:</strong> ${item.price} LKR</p>
+                        <p class="card-text"><strong>Discount:</strong> ${item.discount}%</p>
+                        <button class="btn btn-dark" onclick="addToOrder('${item.id}')">Add to Order</button>
+                    </div>
+                </div>
+            `;
+
+            foodMenuDiv.appendChild(card);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching category items:', error);
+        alert('Failed to load items. Please try again later.');
     });
+
 }
 
 let addOrderArray = [];
 
-// add to order function
+// Add to order function
 function addToOrder(itemCode) {
-    let tbody = document.getElementById('tbodyId');
-
-    for (let i = 0; i < items.length; i++) {
-        if (itemCode === items[i].itemCode) {
-            let itemFound = false;
-
-            for (let j = 0; j < addOrderArray.length; j++) {
-                if (addOrderArray[j].itemCode === itemCode) {
-                    addOrderArray[j].quantity++;
-                    itemFound = true;
-                    break;
-                }
+    fetch(`http://localhost:8080/item/get/${itemCode}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
-
-            if (!itemFound) {
+            return response.json();
+        })
+        .then(data => {
+            const existingItem = addOrderArray.find(item => item.itemCode == data.id);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+                existingItem.total = existingItem.price * existingItem.quantity;
+            } else {
+                
                 addOrderArray.push({
-                    itemCode: items[i].itemCode,
-                    itemName: items[i].itemName,
-                    price: items[i].price,
-                    discount: items[i].discount,
-                    quantity: 1
+                    itemCode: data.id,
+                    itemName: data.itemName,
+                    price: data.price,
+                    quantity: 1,
+                    total: data.price
                 });
             }
-            break;
-        }
-    }
-    // console.log(addOrderArray);
-    updateOrderTable();
+
+            updateOrderTable();
+            
+        })
+        .catch(error => {
+            console.error('Error fetching item:', error);
+            alert('Failed to add item to order. Please try again later.');
+        });
 }
 
-let totalOrderArray = [];
-let totalAmouts = 0;
+let totalAmount = 0;
 
-// update order function
 function updateOrderTable() {
-    let tbody = document.getElementById('tbodyId');
-    tbody.innerHTML = '';
+    const tableBody = document.getElementById('tbodyId');
+    tableBody.innerHTML = '';
+    totalAmount = 0;
 
-    totalAmouts = 0;
-
-    addOrderArray.forEach((item) => {
-        const totalPrice = item.price * item.quantity;
-        totalAmouts += totalPrice;
-
-        tbody.innerHTML += `
-            <tr>
-                <td>${item.itemName}</td>
-                <td>${item.price.toFixed(2)}</td>
-                <td>${item.quantity}</td>
-                <td>${totalPrice.toFixed(2)}</td>
-                <td>
-                    <button class="btn btn-danger" onclick="removeFromOrder('${item.itemCode}')">Remove</button>
-                </td>
-            </tr>
+    addOrderArray.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.itemName}</td>
+            <td>${item.price.toFixed(2)} LKR</td>
+            <td>${item.quantity}</td>
+            <td>${item.total.toFixed(2)} LKR</td>
+            <td><button class="btn btn-danger" onclick="removeFromOrder('${item.itemCode}')">Remove</button></td>
         `;
+        tableBody.appendChild(row);
+        totalAmount += item.total;
     });
-    calTotalAmou();
+
+    // Safely update the total amount
+    const totalAmountElement = document.getElementById('totalAmount');
+    if (totalAmountElement) {
+        totalAmountElement.innerText = `Total: ${totalAmount.toFixed(2)} LKR`;
+    }
 }
 
-// order remove function
+// Order remove function
 function removeFromOrder(itemCode) {
-    addOrderArray = addOrderArray.filter(item => item.itemCode !== itemCode);
-    updateOrderTable();
+    const index = addOrderArray.findIndex(item => item.itemCode == itemCode);
+    if (index !== -1) {
+        addOrderArray.splice(index, 1);
+        updateOrderTable();
+    }
 }
 
-// calcutor amount funtion
+// Calculator amount function
 function calTotalAmou() {
-    let tm = document.getElementById('total-amount');
-    tm.innerHTML = totalAmouts.toFixed(2);
+    let tm = document.getElementById('totalAmount');
+    if (tm) {
+        tm.innerHTML = `Total: ${totalAmount.toFixed(2)} LKR`;
+    }
 }
 
-// calcutor total amount
-function calTotAmo() {
-    let em=document.getElementById('enter-amount').value;
-    let gr=document.getElementById('total-amounts');
-    // console.log(em);
-    let netAmo=em-totalAmouts;
-    gr.innerHTML=netAmo;
+// Function to place an order
+async function placeOrder() {
+    const customerId = parseInt(document.getElementById("customerId").value);
+
+    if (!customerId || addOrderArray.length === 0) {
+        alert("Please enter a valid Customer ID and add at least one item.");
+        return;
+    }
+
+    const orderData = {
+        customerId: customerId,
+        totalPrice: totalAmount,
+        orderItems: addOrderArray
+    };
+    console.log(orderItems);
+    console.log(orderData.orderItems);
+    
+    /*try {
+        const response = await fetch("http://localhost:8080/order/placeOrder", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(orderData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        console.log("Order Placed Successfully:", result);
+        
+        // Reset after placing order
+        addOrderArray = [];
+        totalAmount = 0;
+        alert("Order placed successfully!");
+
+    } catch (error) {
+        console.error("Failed to place order:", error);
+    }*/
 }
+
 //----------------generate Receipt funtions----------------
 function generateReceipt() {
     // Get the table body and rows
