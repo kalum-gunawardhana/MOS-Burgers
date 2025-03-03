@@ -2,31 +2,31 @@ const foodMenuDiv = document.getElementById('food_menu');
 
 function loadBurgers() {
     fetch('http://localhost:8080/item/getCategory/Burgers')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        const foodMenuDiv = document.getElementById('foodMenuDiv');
-        if (!foodMenuDiv) {
-            console.error("Error: Food menu div not found!");
-            return;
-        }
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const foodMenuDiv = document.getElementById('foodMenuDiv');
+            if (!foodMenuDiv) {
+                console.error("Error: Food menu div not found!");
+                return;
+            }
 
-        foodMenuDiv.innerHTML = '';
+            foodMenuDiv.innerHTML = '';
 
-        if (data.length === 0) {
-            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
-            return;
-        }
+            if (data.length === 0) {
+                foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+                return;
+            }
 
-        data.forEach(item => {
-            const card = document.createElement('div');
-            card.classList.add('col-md-3', 'mb-3');
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-3', 'mb-3');
 
-            card.innerHTML = `
+                card.innerHTML = `
                 <div class="card shadow">
                     <div class="card-body">
                         <h5 class="card-title">${item.itemName}</h5>
@@ -37,43 +37,43 @@ function loadBurgers() {
                 </div>
             `;
 
-            foodMenuDiv.appendChild(card);
+                foodMenuDiv.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching category items:', error);
+            alert('Failed to load items. Please try again later.');
         });
-    })
-    .catch(error => {
-        console.error('Error fetching category items:', error);
-        alert('Failed to load items. Please try again later.');
-    });
 
 }
 
 function loadSubmarines() {
     fetch('http://localhost:8080/item/getCategory/Submarines')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        const foodMenuDiv = document.getElementById('foodMenuDiv');
-        if (!foodMenuDiv) {
-            console.error("Error: Food menu div not found!");
-            return;
-        }
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const foodMenuDiv = document.getElementById('foodMenuDiv');
+            if (!foodMenuDiv) {
+                console.error("Error: Food menu div not found!");
+                return;
+            }
 
-        foodMenuDiv.innerHTML = '';
+            foodMenuDiv.innerHTML = '';
 
-        if (data.length === 0) {
-            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
-            return;
-        }
+            if (data.length === 0) {
+                foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+                return;
+            }
 
-        data.forEach(item => {
-            const card = document.createElement('div');
-            card.classList.add('col-md-3', 'mb-3');
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-3', 'mb-3');
 
-            card.innerHTML = `
+                card.innerHTML = `
                 <div class="card shadow">
                     <div class="card-body">
                         <h5 class="card-title">${item.itemName}</h5>
@@ -84,43 +84,43 @@ function loadSubmarines() {
                 </div>
             `;
 
-            foodMenuDiv.appendChild(card);
+                foodMenuDiv.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching category items:', error);
+            alert('Failed to load items. Please try again later.');
         });
-    })
-    .catch(error => {
-        console.error('Error fetching category items:', error);
-        alert('Failed to load items. Please try again later.');
-    });
 
 }
 
 function loadFries() {
     fetch('http://localhost:8080/item/getCategory/Fries')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        const foodMenuDiv = document.getElementById('foodMenuDiv');
-        if (!foodMenuDiv) {
-            console.error("Error: Food menu div not found!");
-            return;
-        }
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const foodMenuDiv = document.getElementById('foodMenuDiv');
+            if (!foodMenuDiv) {
+                console.error("Error: Food menu div not found!");
+                return;
+            }
 
-        foodMenuDiv.innerHTML = '';
+            foodMenuDiv.innerHTML = '';
 
-        if (data.length === 0) {
-            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
-            return;
-        }
+            if (data.length === 0) {
+                foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+                return;
+            }
 
-        data.forEach(item => {
-            const card = document.createElement('div');
-            card.classList.add('col-md-3', 'mb-3');
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-3', 'mb-3');
 
-            card.innerHTML = `
+                card.innerHTML = `
                 <div class="card shadow">
                     <div class="card-body">
                         <h5 class="card-title">${item.itemName}</h5>
@@ -131,43 +131,43 @@ function loadFries() {
                 </div>
             `;
 
-            foodMenuDiv.appendChild(card);
+                foodMenuDiv.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching category items:', error);
+            alert('Failed to load items. Please try again later.');
         });
-    })
-    .catch(error => {
-        console.error('Error fetching category items:', error);
-        alert('Failed to load items. Please try again later.');
-    });
 
 }
 
 function loadPasta() {
     fetch('http://localhost:8080/item/getCategory/Pasta')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        const foodMenuDiv = document.getElementById('foodMenuDiv');
-        if (!foodMenuDiv) {
-            console.error("Error: Food menu div not found!");
-            return;
-        }
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const foodMenuDiv = document.getElementById('foodMenuDiv');
+            if (!foodMenuDiv) {
+                console.error("Error: Food menu div not found!");
+                return;
+            }
 
-        foodMenuDiv.innerHTML = '';
+            foodMenuDiv.innerHTML = '';
 
-        if (data.length === 0) {
-            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
-            return;
-        }
+            if (data.length === 0) {
+                foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+                return;
+            }
 
-        data.forEach(item => {
-            const card = document.createElement('div');
-            card.classList.add('col-md-3', 'mb-3');
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-3', 'mb-3');
 
-            card.innerHTML = `
+                card.innerHTML = `
                 <div class="card shadow">
                     <div class="card-body">
                         <h5 class="card-title">${item.itemName}</h5>
@@ -178,43 +178,43 @@ function loadPasta() {
                 </div>
             `;
 
-            foodMenuDiv.appendChild(card);
+                foodMenuDiv.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching category items:', error);
+            alert('Failed to load items. Please try again later.');
         });
-    })
-    .catch(error => {
-        console.error('Error fetching category items:', error);
-        alert('Failed to load items. Please try again later.');
-    });
 
 }
 
 function loadChicken() {
     fetch('http://localhost:8080/item/getCategory/Chicken')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        const foodMenuDiv = document.getElementById('foodMenuDiv');
-        if (!foodMenuDiv) {
-            console.error("Error: Food menu div not found!");
-            return;
-        }
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const foodMenuDiv = document.getElementById('foodMenuDiv');
+            if (!foodMenuDiv) {
+                console.error("Error: Food menu div not found!");
+                return;
+            }
 
-        foodMenuDiv.innerHTML = '';
+            foodMenuDiv.innerHTML = '';
 
-        if (data.length === 0) {
-            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
-            return;
-        }
+            if (data.length === 0) {
+                foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+                return;
+            }
 
-        data.forEach(item => {
-            const card = document.createElement('div');
-            card.classList.add('col-md-3', 'mb-3');
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-3', 'mb-3');
 
-            card.innerHTML = `
+                card.innerHTML = `
                 <div class="card shadow">
                     <div class="card-body">
                         <h5 class="card-title">${item.itemName}</h5>
@@ -225,44 +225,44 @@ function loadChicken() {
                 </div>
             `;
 
-            foodMenuDiv.appendChild(card);
+                foodMenuDiv.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching category items:', error);
+            alert('Failed to load items. Please try again later.');
         });
-    })
-    .catch(error => {
-        console.error('Error fetching category items:', error);
-        alert('Failed to load items. Please try again later.');
-    });
 
 }
 
 function loadBeverages() {
     fetch('http://localhost:8080/item/getCategory/Beverages')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        const foodMenuDiv = document.getElementById('foodMenuDiv');
-        if (!foodMenuDiv) {
-            console.error("Error: Food menu div not found!");
-            return;
-        }
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const foodMenuDiv = document.getElementById('foodMenuDiv');
+            if (!foodMenuDiv) {
+                console.error("Error: Food menu div not found!");
+                return;
+            }
 
-        foodMenuDiv.innerHTML = '';
+            foodMenuDiv.innerHTML = '';
 
-        if (data.length === 0) {
-            foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
-            return;
-        }
+            if (data.length === 0) {
+                foodMenuDiv.innerHTML = "<p>No items found in this category.</p>";
+                return;
+            }
 
-        data.forEach(item => {
-            
-            const card = document.createElement('div');
-            card.classList.add('col-md-3', 'mb-3');
+            data.forEach(item => {
 
-            card.innerHTML = `
+                const card = document.createElement('div');
+                card.classList.add('col-md-3', 'mb-3');
+
+                card.innerHTML = `
                 <div class="card shadow">
                     <div class="card-body">
                         <h5 class="card-title">${item.itemName}</h5>
@@ -273,13 +273,13 @@ function loadBeverages() {
                 </div>
             `;
 
-            foodMenuDiv.appendChild(card);
+                foodMenuDiv.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching category items:', error);
+            alert('Failed to load items. Please try again later.');
         });
-    })
-    .catch(error => {
-        console.error('Error fetching category items:', error);
-        alert('Failed to load items. Please try again later.');
-    });
 
 }
 
@@ -296,12 +296,12 @@ function addToOrder(itemCode) {
         })
         .then(data => {
             const existingItem = addOrderArray.find(item => item.itemCode == data.id);
-            
+
             if (existingItem) {
                 existingItem.quantity++;
                 existingItem.total = existingItem.price * existingItem.quantity;
             } else {
-                
+
                 addOrderArray.push({
                     itemCode: data.id,
                     itemName: data.itemName,
@@ -312,7 +312,7 @@ function addToOrder(itemCode) {
             }
 
             updateOrderTable();
-            
+
         })
         .catch(error => {
             console.error('Error fetching item:', error);
@@ -378,10 +378,9 @@ async function placeOrder() {
         totalPrice: totalAmount,
         orderItems: addOrderArray
     };
-    console.log(orderItems);
     console.log(orderData.orderItems);
-    
-    /*try {
+
+    try {
         const response = await fetch("http://localhost:8080/order/placeOrder", {
             method: "POST",
             headers: {
@@ -396,7 +395,7 @@ async function placeOrder() {
 
         const result = await response.json();
         console.log("Order Placed Successfully:", result);
-        
+
         // Reset after placing order
         addOrderArray = [];
         totalAmount = 0;
@@ -404,7 +403,7 @@ async function placeOrder() {
 
     } catch (error) {
         console.error("Failed to place order:", error);
-    }*/
+    }
 }
 
 //----------------generate Receipt funtions----------------
@@ -449,70 +448,3 @@ function generateReceipt() {
     `);
     receiptWindow.document.close();
 }
-//----------add customers form----------
-// let int1;
-// let int2;
-
-// function addCustomer() {
-//     (async () => {
-//         const { value: formValues } = await Swal.fire({
-//           title: "Add Customer Form",
-//           html: `
-//             <input id="swal-input1" class="swal2-input" placeholder="Customer Name">
-//             <input id="swal-input2" class="swal2-input" placeholder="Customer Phone Number">
-//           `,
-//           focusConfirm: false,
-//           preConfirm: () => {
-//             return [
-//                 int1=document.getElementById("swal-input1").value,
-//                 int2=document.getElementById("swal-input2").value
-//             ];
-//           }
-//         });
-//         if (formValues) {
-//           Swal.fire(JSON.stringify(formValues));
-//         }
-//       })()
-// }
-
-// let code;
-// let names;
-// let price;
-// let discount;
-
-// function addItems() {
-//     (async () => {
-//         const { value: formValues } = await Swal.fire({
-//             title: "Add Items Form",
-//             html: `
-//                 <input id="swal-code" class="swal2-input" placeholder="Item Code">
-//                 <input id="swal-name" class="swal2-input" placeholder="Item Name">
-//                 <input id="swal-price" class="swal2-input" placeholder="Item Price">
-//                 <input id="swal-discount" class="swal2-input" placeholder="Item Discount">
-//             `,
-//             focusConfirm: false,
-//             preConfirm: () => {
-//                 // Capture the form values from input fields
-//                 code = document.getElementById("swal-code").value;
-//                 names = document.getElementById("swal-name").value;
-//                 price = document.getElementById("swal-price").value;
-//                 discount = document.getElementById("swal-discount").value;
-
-//                 // Add the new item to the items array
-//                 items.push({
-//                     itemCode: code,
-//                     itemName: names,
-//                     price: price,
-//                     discount: discount
-//                 });
-//                 // Return the captured values
-//                 return [code, names, price, discount];
-//             }
-//         });
-        
-//         // Show the confirmation alert with the form values
-//         if (formValues) {
-//             Swal.fire(`Item Added: ${JSON.stringify(formValues)}`);
-//         }
-//     })();
-// }
